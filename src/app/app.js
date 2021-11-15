@@ -7,7 +7,7 @@ let Equal = (props)=>{
     const [state, setState] = useState(0)
     return (
         <div>
-            {/* <button>hi</button> */}
+            {console.log(props.user)}
             <h1>{props.user.name}</h1>
              <h1>Value {state}</h1> 
                <button onClick={()=>{
@@ -19,8 +19,8 @@ let Equal = (props)=>{
                       return --prev})
               }}>SUBS</button> 
               <button onClick={()=>{
-                  props.setName()
-              }}>SUBS</button> 
+                  props.setName('ppp')
+              }}>Change Name</button> 
         </div>
 
     );
@@ -36,14 +36,14 @@ const mapStateToProps=(state)=>{
 }
 
 //which action wants to dispatch there
-const mapDispathToProps=(dispatch)=>{
+const mapDispatchToProps = (dispatch) => {
     return {
-        setName: (name)=>{
-            dispatch(setName(name))
+        setName: (name) => {
+            dispatch(setName(name));
         }
-    }
-}
+    };
+};
 
-export default  connect(mapStateToProps,mapDispathToProps)(Equal)
+export default  connect(mapStateToProps,mapDispatchToProps)(Equal)
 
 
